@@ -1,26 +1,160 @@
-@import "tailwindcss";
+/* app/globals.css */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+    height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card */
+.card {
+    width: 380px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    padding: 24px 24px 28px;
+}
+
+/* Rows */
+.card-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.card-row--first {
+    padding-top: 0;
+}
+
+.card-label {
+    font-size: 16px;
+    color: #444444;
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background-color: #f0f0f0;
+    margin: 8px 0;
+}
+
+.divider--bottom {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+/* Wrapper */
+.checkbox {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hidden real input */
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Default (unchecked) box */
+.checkbox-box {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    background-color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.checkbox-box::before {
+    content: "";
+    position: absolute;
+    width: 45%;
+    height: 25%;
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%) rotate(-45deg);
+    opacity: 0;
+    transition: opacity 0.12s ease-in-out;
+}
+
+.checkbox input:checked + .checkbox-box {
+    background-color: #2469f6 !important;
+    border-color: #2469f6;
+}
+
+.checkbox:hover input:checked + .checkbox-box {
+    background-color: #5087f8 !important;
+    border-color:  #5087f8;
+}
+
+.checkbox input:checked + .checkbox-box::before {
+    opacity: 1;
+}
+
+.checkbox:hover input:not(:checked) + .checkbox-box {
+    background-color: #f3f6ff;
+    border-color: #c5c9d1;
+}
+
+.checkbox:hover input:not(:checked) + .checkbox-box::before {
+    opacity: 1;
+    border-left-color: #b0b5c0;
+    border-bottom-color: #b0b5c0;
+}
+
+/* Button */
+.btn-primary {
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #f8c944;
+    color: #333333;
+    cursor: pointer;
+    transition: box-shadow 0.15s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #ffd44d;
+    box-shadow: 0 4px 10px rgba(248, 201, 68, 0.5);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
