@@ -1,5 +1,5 @@
 
-Project Link :ellty-frontend-test-orpin.vercel.app
+Project Link : ellty-frontend-test-orpin.vercel.app
 
 # Ellty – Pages Selector (Technical Test)
 
